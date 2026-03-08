@@ -1,6 +1,6 @@
 import { browser } from '$app/environment';
 import { appState } from '$lib/state.svelte.js';
-const BASE_URL = '';
+const BASE_URL = 'https://enchatted.xyz';
 function handleLogout() {
     if (browser) {
         localStorage.removeItem('token');

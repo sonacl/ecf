@@ -25,8 +25,7 @@ export function wsConnect() {
         const token = appState.token;
         if (!token) return;
 
-        const proto = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-        const wsUrl = `${proto}//${window.location.host}/enchatted/ws?token=${token}`;
+        const wsUrl = `wss://enchatted.xyz/enchatted/ws?token=${token}`;
 
         _ws = new WebSocket(wsUrl);
 

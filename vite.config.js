@@ -7,18 +7,5 @@ export default defineConfig({
 		allowedHosts: ['enchatted.xyz', 'ecf.0xf.hu']
 	},
 	server: {
-		proxy: {
-			'/enchatted': {
-				target: 'https://enchatted.xyz',
-				changeOrigin: true,
-				secure: false
-			},
-			'/ws': {
-				target: 'wss://enchatted.xyz',
-				ws: true,
-				changeOrigin: true,
-				secure: false
-			}
-		}
 	}
 });
