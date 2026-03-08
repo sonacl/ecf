@@ -15,7 +15,7 @@
         multishot: {
             src: "/enchatted/web_assets/enchant_book.webp",
             alt: "Multishot",
-            label: "Multishot",
+            label: "Multishot - this user has at least 20 friends",
         },
         twin: {
             src: "/enchatted/web_assets/twin.gif",
@@ -35,17 +35,17 @@
         supporter: {
             src: "/enchatted/web_assets/supporter.png",
             alt: "Supporter",
-            label: "Supporter",
+            label: "Supporter - Thanks for donating!",
         },
         official: {
             src: "/enchatted/web_assets/official.gif",
             alt: "Official",
-            label: "Official",
+            label: "Official account of this person",
         },
         verified: {
             src: "/enchatted/web_assets/og.png",
             alt: "Verified",
-            label: "Verified",
+            label: "Verified - Account registered over 30 days ago (or just verified by an admin)",
         },
         boykisser: {
             src: "/enchatted/web_assets/boykisser.png",

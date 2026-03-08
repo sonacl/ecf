@@ -5,11 +5,21 @@
 </script>
 <div class="main-card">
     <div class="names">
-        <h2 class="display-name">
+        <h2 class="display-name font-{userData?.display_name_font || 'normal'} {userData?.is_enchanted ? 'enchanted-text' : ''}">
             {userData?.display_name || target}
+            {#if userData?.official}
+                <img src="/enchatted/web_assets/official.gif" alt="Official" title="Official account of this person" class="inline-badge" />
+            {/if}
         </h2>
         <span class="user-handle">@{target}</span>
     </div>
+
+    {#if userData?.custom_status}
+        <div class="custom-status">
+            <span class="status-msg">{userData.custom_status}</span>
+        </div>
+    {/if}
+
     <ProfileEnchantments {enchantments} />
     {#if userData?.bio}
         <div class="section">
@@ -58,6 +68,15 @@
         color: var(--text-muted);
         display: block;
         margin-top: 2px;
+    }
+    .custom-status {
+        margin-top: 12px;
+        background: var(--bg-secondary);
+        padding: 6px 12px;
+        border-radius: 6px;
+        border: 1px solid var(--border-color);
+        font-size: 0.85rem;
+        color: var(--text-normal);
     }
     .section {
         margin-top: 24px;

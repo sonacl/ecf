@@ -64,6 +64,49 @@
             console.error("Failed to reactivate", e);
         }
     }
+    const enchantments = $derived.by(() => {
+        if (!userData && !stats) return [];
+        const items = [];
+        const s = stats || {};
+        const u = userData || {};
+
+        if (s.efficiency > 0) items.push({ type: "efficiency", level: s.efficiency });
+        if (s.loyalty > 0) items.push({ type: "loyalty", level: s.loyalty });
+        if (s.multishot > 0) items.push({ type: "multishot", level: 0 });
+        
+        if (u.twin || s.twin) items.push({ type: "twin", level: 0 });
+        if (u.owner || s.owner) items.push({ type: "owner", level: 0 });
+        if (u.helper || s.helper) items.push({ type: "helper", level: 0 });
+        if (u.supporter || s.supporter) items.push({ type: "supporter", level: 0 });
+        if (u.official || s.official) items.push({ type: "official", level: 0 });
+        if (u.verified || s.verified) items.push({ type: "verified", level: 0 });
+        if (u.boykisser || s.boykisser) items.push({ type: "boykisser", level: 0 });
+
+        const rawBadges = [
+            ...(u.badges || u.enchantments || []),
+            ...(s.badges || s.enchantments || []),
+        ];
+        rawBadges.forEach((b) => {
+            if (typeof b === "string") {
+                if (!items.find(i => i.type === b)) items.push({ type: b, level: 0 });
+            } else if (b && typeof b === "object") {
+                const type = b.enchant || b.type || b.name || b.id;
+                if (type && !items.find(i => i.type === type)) {
+                    items.push({ type, level: b.level || 0 });
+                }
+            }
+        });
+
+        const unique = [];
+        const seen = new Set();
+        items.forEach((item) => {
+            if (!seen.has(item.type)) {
+                seen.add(item.type);
+                unique.push(item);
+            }
+        });
+        return unique;
+    });
 </script>
 {#if username}
     <div
@@ -74,7 +117,7 @@
         <div class="profile-card">
             <header
                 class="card-header"
-                style="background-color: var(--accent-primary)"
+                style="background-color: {userData?.banner_color || 'var(--accent-primary)'}; {userData?.banner_picture ? `background-image: url(${userData.banner_picture})` : ''}"
             >
                 <button class="close-btn" onclick={onClose}>
                     <Icon name="lucide:x" size="20" />
@@ -86,7 +129,7 @@
                         src={userData?.profile_picture}
                         initials={username.charAt(0)}
                         size="92px"
-                        status={userData?.is_online ? "online" : "offline"}
+                        status={userData?.is_online ? userData?.custom_status || "online" : "offline"}
                         isEnchanted={userData?.is_enchanted}
                         decoration={userData?.avatar_decoration}
                         dotBorder="var(--bg-primary)"
@@ -95,18 +138,36 @@
                 </div>
                 <div class="user-info">
                     <div class="name-row">
-                        <h2>{userData?.display_name || username}</h2>
+                        <h2 class="font-{userData?.display_name_font || 'normal'} {userData?.is_enchanted ? 'enchanted-text' : ''}">
+                            {userData?.display_name || username}
+                            {#if userData?.official}
+                                <img src="/enchatted/web_assets/official.gif" alt="Official" title="Official account of this person" class="inline-badge" />
+                            {/if}
+                        </h2>
                         <span class="username">@{username}</span>
                     </div>
-                    {#if userData?.official}
-                        <Badge type="official" />
+
+                    {#if userData?.custom_status}
+                        <div class="custom-status-bubble">
+                            <span class="status-text">{userData.custom_status}</span>
+                        </div>
                     {/if}
-                    {#if userData?.owner}
-                        <Badge type="owner" />
-                    {/if}
+
+                    <div class="badges-row">
+                        {#each enchantments as badge}
+                            <Badge type={badge.type} level={badge.level} />
+                        {/each}
+                    </div>
+
                     <div class="status-msg">
                         {@html formattedBio}
                     </div>
+
+                    {#if userData?.last_seen}
+                        <div class="last-seen">
+                            Last seen: {new Date(userData.last_seen).toLocaleString()}
+                        </div>
+                    {/if}
                 </div>
                 {#if appState.user?.owner && username !== appState.username}
                     <div class="admin-tools">
@@ -210,8 +271,31 @@
         }
     }
     .card-header {
-        height: 80px;
+        height: 100px;
         position: relative;
+        background-size: cover;
+        background-position: center;
+    }
+    .custom-status-bubble {
+        margin-top: 8px;
+        background: var(--bg-secondary);
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        color: var(--text-normal);
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid var(--border-color);
+    }
+    .badges-row {
+        display: flex;
+        gap: 6px;
+        margin-top: 12px;
+    }
+    .last-seen {
+        margin-top: 12px;
+        font-size: 0.75rem;
+        color: var(--text-muted);
     }
     .close-btn {
         position: absolute;

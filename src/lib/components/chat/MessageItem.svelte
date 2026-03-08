@@ -146,7 +146,7 @@
         {#if !isGrouped && author}
             <div class="msg-header">
                 <button
-                    class="author-name font-{displayNameFont}"
+                    class="author-name font-{displayNameFont} {isEnchanted ? 'enchanted-text' : ''}"
                     onclick={() => (uiState.viewingProfile = author.username)}
                 >
                     {displayName}

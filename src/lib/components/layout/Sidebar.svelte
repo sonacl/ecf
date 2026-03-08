@@ -220,9 +220,12 @@
                                         dotBorder="var(--bg-secondary)"
                                     />
                                 </div>
-                                <span class="name"
-                                    >{profile.display_name || dm.username}</span
-                                >
+                                <span class="name font-{profile.display_name_font || 'normal'} {profile.is_enchanted ? 'enchanted-text' : ''}">
+                                    {profile.display_name || dm.username}
+                                    {#if profile.official}
+                                        <img src="/enchatted/web_assets/official.gif" alt="Official" title="Official account of this person" class="inline-badge" style="width: 14px; height: 14px; margin-left: 4px;" />
+                                    {/if}
+                                </span>
                                 {#if dm.unread > 0}
                                     <span class="badge red">{dm.unread}</span>
                                 {/if}

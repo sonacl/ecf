@@ -19,10 +19,13 @@
             dotBorder="var(--bg-secondary)"
         />
         <div class="meta">
-            <span class="display-name">
+            <span class="display-name font-{appState.user?.display_name_font || 'normal'} {appState.user?.is_enchanted ? 'enchanted-text' : ''}">
                 {appState.user?.display_name ||
                     appState.username ||
                     "Connecting..."}
+                {#if appState.user?.official}
+                    <img src="/enchatted/web_assets/official.gif" alt="Official" title="Official account of this person" class="inline-badge" style="width: 14px; height: 14px; margin-left: 4px;" />
+                {/if}
             </span>
             <span class="status-msg">
                 {appState.user?.custom_status

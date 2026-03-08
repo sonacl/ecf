@@ -260,6 +260,7 @@ export function getChannelInfo(chatId) {
   return {
     name: profile?.display_name || chatId,
     isDM: true,
+    official: !!profile?.official,
     subtitle: appState.onlineUsers.has(chatId) ? 'Online' : 'Offline',
   };
 }

@@ -1,7 +1,7 @@
 <script>
     import Icon from "../ui/Icon.svelte";
     import { uiState } from "$lib/state.svelte.js";
-    let { channelName = "general", isDM = false, subtitle = "" } = $props();
+    let { channelName = "general", isDM = false, subtitle = "", official = false } = $props();
 </script>
 <header class="chat-header flex items-center justify-between px-4">
     <div class="flex items-center gap-2 overflow-hidden">
@@ -18,7 +18,12 @@
             size="24"
         />
         <div class="header-info flex items-center gap-2 overflow-hidden">
-            <h2 class="title truncate">{channelName}</h2>
+            <h2 class="title truncate">
+                {channelName}
+                {#if official}
+                    <img src="/enchatted/web_assets/official.gif" alt="Official" class="inline-badge" style="width: 16px; height: 16px;" />
+                {/if}
+            </h2>
             {#if subtitle}
                 <div class="divider"></div>
                 <p

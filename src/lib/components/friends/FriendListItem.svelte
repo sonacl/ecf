@@ -18,7 +18,12 @@
         status={isOnline ? profile?.custom_status || "online" : "offline"}
     />
     <div class="fp-item-info">
-        <span class="fp-item-name">{displayName}</span>
+        <span class="fp-item-name font-{profile?.display_name_font || 'normal'} {profile?.is_enchanted ? 'enchanted-text' : ''}">
+            {displayName}
+            {#if profile?.official}
+                <img src="/enchatted/web_assets/official.gif" alt="Official" title="Official account of this person" class="inline-badge" style="width: 14px; height: 14px; margin-left: 4px;" />
+            {/if}
+        </span>
         <span class="fp-item-sub">{status}</span>
     </div>
     <div class="fp-item-actions">

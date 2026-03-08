@@ -140,6 +140,7 @@
             <ChatHeader
                 channelName={activeChannel.name}
                 isDM={activeChannel.isDM}
+                official={activeChannel.official}
                 subtitle={activeChannel.subtitle}
             />
             <div class="messages-area" bind:this={chatContainer}>

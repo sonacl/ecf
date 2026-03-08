@@ -59,11 +59,24 @@
         {/if}
     </div>
     {#if decoration === "cat_ears"}
+        {@const isLarge = parseInt(computedSize) >= 70}
         <img
             class="decoration cat-ears"
-            src="/enchatted/web_assets/cat_ears_static.png"
-            alt="Cat ears decoration"
+            src={isLarge ? "/enchatted/web_assets/cat_ears.gif" : "/enchatted/web_assets/cat_ears_static.png"}
+            alt="Cat ears"
             style="width: calc({computedSize} * 1.5); top: calc({computedSize} * -0.35);"
+        />
+    {:else if decoration === "halo"}
+        <div 
+            class="decoration halo"
+            style="width: calc({computedSize} * 0.8); height: calc({computedSize} * 0.2); top: calc({computedSize} * -0.2);"
+        ></div>
+    {:else if decoration === "crown"}
+         <Icon 
+            name="lucide:crown" 
+            class="decoration crown" 
+            size="calc({computedSize} * 0.6)"
+            style="top: calc({computedSize} * -0.4); color: #ffd700; filter: drop-shadow(0 0 5px gold);" 
         />
     {/if}
     {#if status}
@@ -74,6 +87,12 @@
     {/if}
 </div>
 <style>
+    .halo {
+        border: 2px solid #fff;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #fff, 0 0 20px var(--accent-primary);
+        opacity: 0.8;
+    }
     .avatar-wrapper {
         position: relative;
         display: inline-flex;
@@ -130,27 +149,15 @@
     .status-dot.idle {
         background-color: var(--warning-color);
     }
+    .status-dot.away {
+        background-color: #5865f2;
+    }
     .status-dot.dnd {
         background-color: var(--danger-color);
     }
     .status-dot.offline,
     .status-dot.invisible {
         background-color: #747f8d;
-    }
-    .online {
-        background-color: var(--success-color);
-    }
-    .idle {
-        background-color: #faa61a;
-    }
-    .away {
-        background-color: #5865f2;
-    }
-    .dnd {
-        background-color: var(--danger-color);
-    }
-    .offline {
-        background-color: var(--text-muted);
     }
     .decoration {
         position: absolute;

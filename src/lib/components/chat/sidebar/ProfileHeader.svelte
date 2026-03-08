@@ -16,6 +16,8 @@
         initials={target?.charAt(0)}
         size="92px"
         status={isOnline ? userData?.custom_status || "online" : "offline"}
+        decoration={userData?.avatar_decoration}
+        isEnchanted={userData?.is_enchanted}
     />
 </div>
 <style>
