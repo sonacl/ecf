@@ -9,19 +9,18 @@
         if (browser && appState.token) goto("/app");
     });
 </script>
+
 <div class="landing-page">
     <Navbar />
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">✦ Next Generation Chat</div>
             <h1 class="hero-title">
-                Where Conversations
-                <span class="gradient-text">Come Alive</span>
+                The Chat Platform
+                <span class="gradient-text">That Feels Like Home</span>
             </h1>
             <p class="hero-subtitle">
-                A modern, real-time chat experience built for communities and
-                friends. Servers, DMs, reactions, badges — everything you love,
-                reimagined.
+                A private, community-focused chat platform for friends and
+                teams.
             </p>
             <div class="hero-cta">
                 <a href="/register" class="btn btn-primary">
@@ -130,6 +129,7 @@
         </div>
     </footer>
 </div>
+
 <style>
     .landing-page {
         min-height: 100vh;
@@ -140,24 +140,44 @@
     .hero {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 140px 32px 80px;
+        padding: 160px 32px 100px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 64px;
         align-items: center;
+        position: relative;
+    }
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(
+            circle,
+            var(--accent-muted) 0%,
+            transparent 70%
+        );
+        z-index: -1;
+        opacity: 0.5;
+        pointer-events: none;
     }
     .hero-badge {
         display: inline-flex;
         align-items: center;
         gap: 6px;
         padding: 6px 14px;
-        background: var(--accent-muted);
+        background: var(--bg-secondary);
         color: var(--accent-primary);
+        border: 1px solid var(--border-color);
         border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        letter-spacing: 0.3px;
-        margin-bottom: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 24px;
     }
     .hero-title {
         font-size: 3.5rem;
@@ -227,11 +247,14 @@
     .mock-window {
         width: 100%;
         max-width: 520px;
-        background: var(--bg-secondary);
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
+        background: rgba(18, 18, 22, 0.4);
+        backdrop-filter: blur(20px);
+        border-radius: 16px;
+        border: 1px solid var(--border-strong);
         overflow: hidden;
-        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+        box-shadow:
+            0 40px 100px rgba(0, 0, 0, 0.6),
+            0 0 0 1px rgba(255, 255, 255, 0.05) inset;
     }
     .window-dots {
         display: flex;

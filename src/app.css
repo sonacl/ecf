@@ -1,37 +1,37 @@
 :root {
-    --bg-primary: #121214;
-    --bg-secondary: #1e1e22;
-    --bg-tertiary: #2b2b2f;
-    --bg-modifier-hover: rgba(79, 84, 92, 0.16);
-    --bg-modifier-active: rgba(79, 84, 92, 0.24);
-    --bg-modifier-selected: rgba(79, 84, 92, 0.32);
-    --bg-elevated: #1a1a1e;
+    --bg-primary: #0a0a0c;
+    --bg-secondary: #121216;
+    --bg-tertiary: #191920;
+    --bg-modifier-hover: rgba(125, 93, 255, 0.08);
+    --bg-modifier-active: rgba(125, 93, 255, 0.12);
+    --bg-modifier-selected: rgba(125, 93, 255, 0.16);
+    --bg-elevated: #16161c;
 
     --text-primary: #ffffff;
-    --text-normal: #dcddde;
-    --text-secondary: #b9bbbe;
-    --text-muted: #72767d;
+    --text-normal: #e2e2e6;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
     --text-header: #ffffff;
-    --text-link: #00aff4;
-    --text-positive: #43b581;
-    --text-danger: #f04747;
+    --text-link: #3b82f6;
+    --text-positive: #10b981;
+    --text-danger: #ef4444;
 
-    --accent-primary: #7d5dff;
-    --accent-secondary: #5b41cc;
-    --accent-hover: #6a4de6;
-    --accent-muted: rgba(125, 93, 255, 0.15);
+    --accent-primary: #8b5cf6;
+    --accent-secondary: #7c3aed;
+    --accent-hover: #9c7cf8;
+    --accent-muted: rgba(139, 92, 246, 0.12);
 
-    --success-color: #43b581;
-    --danger-color: #f04747;
-    --warning-color: #faa61a;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
 
     --sidebar-width: 260px;
     --header-height: 56px;
     --composer-height: auto;
-    --border-radius: 8px;
-    --border-color: rgba(255, 255, 255, 0.06);
-    --border-light: rgba(255, 255, 255, 0.05);
-    --border-strong: rgba(0, 0, 0, 0.2);
+    --border-radius: 12px;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-light: rgba(255, 255, 255, 0.04);
+    --border-strong: rgba(255, 255, 255, 0.12);
 }
 
 * {
@@ -48,6 +48,12 @@ body {
     color: var(--text-normal);
     height: 100%;
     width: 100%;
+    letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Inter', sans-serif;
+    letter-spacing: -0.023em;
 }
 
 a {

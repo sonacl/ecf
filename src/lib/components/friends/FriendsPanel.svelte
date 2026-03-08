@@ -134,7 +134,7 @@
     <div class="fp-body">
         {#if activeTab === "online"}
             <div class="fp-section-label">
-                Online — {onlineFriends.length}
+                Online • {onlineFriends.length}
             </div>
             {#if onlineFriends.length === 0}
                 <div class="fp-empty">
@@ -154,7 +154,7 @@
             {/if}
         {:else if activeTab === "all"}
             <div class="fp-section-label">
-                All Friends — {appState.friends.length}
+                All Friends • {appState.friends.length}
             </div>
             {#if appState.friends.length === 0}
                 <div class="fp-empty">
@@ -173,7 +173,7 @@
             {/if}
         {:else if activeTab === "pending"}
             <div class="fp-section-label">
-                Incoming — {appState.requests?.length || 0}
+                Incoming • {appState.requests?.length || 0}
             </div>
             {#if !appState.requests?.length}
                 <div class="fp-empty-sm">No incoming friend requests.</div>
@@ -203,7 +203,7 @@
                 </ul>
             {/if}
             <div class="fp-section-label" style="margin-top: 16px;">
-                Sent — {appState.sentRequests?.length || 0}
+                Sent • {appState.sentRequests?.length || 0}
             </div>
             {#if !appState.sentRequests?.length}
                 <div class="fp-empty-sm">No pending sent requests.</div>
@@ -212,7 +212,7 @@
                     {#each appState.sentRequests as req}
                         <FriendListItem
                             username={req.to || req}
-                            statusOverride="Outgoing — Pending"
+                            statusOverride="Outgoing | Pending"
                             actions={[
                                 {
                                     title: "Cancel",

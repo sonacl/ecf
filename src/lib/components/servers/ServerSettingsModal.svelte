@@ -284,7 +284,7 @@
                     {:else if activeTab === "members"}
                         <div class="members-view">
                             <div class="members-header">
-                                <h3>Total Members — {members.length}</h3>
+                                <h3>Total Members • {members.length}</h3>
                             </div>
                             <ul class="members-list">
                                 {#each members as member}

@@ -17,7 +17,7 @@
 </script>
 <svelte:head>
 	<title>Enchatted</title>
-	<meta name="description" content="Next generation chat experience" />
+	<meta name="description" content="A private, community-focused chat platform for friends and teams." />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link
 		rel="preconnect"
@@ -25,7 +25,7 @@
 		crossorigin="anonymous"
 	/>
 	<link
-		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
 		rel="stylesheet"
 	/>
 </svelte:head>

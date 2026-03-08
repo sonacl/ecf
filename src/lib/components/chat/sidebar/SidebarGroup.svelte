@@ -36,12 +36,12 @@
         <h3>Group Chat</h3>
     </div>
     <div class="group-members">
-        <span class="section-title">Members — {members.length}</span>
+        <span class="section-title">Members • {members.length}</span>
         <ul class="member-list">
             {#if loading}
                 <li class="loading-state">
                     <Icon name="lucide:loader-circle" size="16" class="spin" />
-                    Fetching squad...
+                    Finding everyone...
                 </li>
             {:else}
                 {#each members as member}

@@ -5,7 +5,7 @@
 <nav class="navbar" class:transparent>
     <div class="nav-inner">
         <a href="/" class="nav-brand">
-            <span class="brand-icon">✦</span>
+            <span class="brand-icon">◈</span>
             <span class="brand-text">Enchatted</span>
         </a>
         <div class="nav-links">
