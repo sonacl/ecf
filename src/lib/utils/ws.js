@@ -2,6 +2,7 @@ import { browser } from '$app/environment';
 import { appState } from '$lib/state.svelte.js';
 import { refreshFriendData } from './chat.js';
 import { api } from './api.js';
+import { WS_BASE_URL } from '$lib/config.js';
 
 let _ws = null;
 let _wsConnected = false;
@@ -25,7 +26,8 @@ export function wsConnect() {
         const token = appState.token;
         if (!token) return;
 
-        const wsUrl = `wss://enchatted.xyz/enchatted/ws?token=${token}`;
+        const base = WS_BASE_URL || (window.location.protocol === 'https:' ? 'wss://' : 'ws://') + window.location.host;
+        const wsUrl = `${base}/enchatted/ws?token=${token}`;
 
         _ws = new WebSocket(wsUrl);
 
