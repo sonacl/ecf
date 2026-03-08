@@ -111,7 +111,6 @@
         }
     }
     onMount(() => {
-        loadInitialData();
         return startServices();
     });
 </script>

@@ -2,30 +2,26 @@
     import { browser } from "$app/environment";
     import { goto } from "$app/navigation";
     import { onMount } from "svelte";
-    import { appState } from "$lib/state.svelte.js";
+    import { appState, uiState } from "$lib/state.svelte.js";
     import { api } from "$lib/utils/api.js";
+    import { loadInitialData } from "$lib/utils/chat.js";
     import GlobalServices from "$lib/components/GlobalServices.svelte";
     import ToastContainer from "$lib/components/ui/ToastContainer.svelte";
     let { children } = $props();
-    let ready = $state(false);
+    
     onMount(async () => {
         if (browser) {
             if (!appState.token) {
                 goto("/login");
                 return;
             }
-            try {
-                const me = await api.profile.getMe();
-                if (me) appState.user = me;
-            } catch (e) {
-                console.error("Initial load failed:", e);
-            }
-            ready = true;
+            // Start the loading sequence
+            await loadInitialData();
         }
     });
 </script>
 
-{#if ready}
+{#if !uiState.initialLoading}
     <GlobalServices />
     <ToastContainer />
     {@render children()}
