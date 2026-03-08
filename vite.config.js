@@ -3,6 +3,9 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	plugins: [sveltekit()],
+	preview: {
+		allowedHosts: ['enchatted.xyz', 'ecf.0xf.hu']
+	},
 	server: {
 		proxy: {
 			'/enchatted': {
