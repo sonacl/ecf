@@ -1,5 +1,5 @@
 import { browser } from '$app/environment';
-import { appState } from '$lib/state.svelte.js';
+import { appState } from '$lib/stores/index.svelte.js';
 import { refreshFriendData } from './chat.js';
 import { api } from './api.js';
 import { WS_BASE_URL } from '$lib/config.js';

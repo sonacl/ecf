@@ -1,7 +1,7 @@
 <script>
     import Icon from "../ui/Icon.svelte";
     import GifPicker from "../ui/GifPicker.svelte";
-    import { uiState } from "$lib/state.svelte.js";
+    import { uiState } from "$lib/stores/index.svelte.js";
     import { api } from "$lib/utils/api.js";
     let { onSend, placeholder = "Message..." } = $props();
     let content = $state("");

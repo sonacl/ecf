@@ -1,10 +1,12 @@
 import { browser } from '$app/environment';
-import { appState } from '$lib/state.svelte.js';
+import { appState } from '$lib/stores/index.svelte.js';
+
 export function updateTabTitle() {
   if (!browser) return;
   const total = Object.values(appState.unreadMessages).reduce((a, b) => a + (b || 0), 0);
   document.title = total > 0 ? `(${total > 99 ? '99+' : total}) Enchatted` : 'Enchatted';
 }
+
 export function sendBrowserNotification(sender, msgContent) {
   if (!browser || !('Notification' in window) || Notification.permission !== 'granted') return;
   if (document.hasFocus()) return;
@@ -24,11 +26,13 @@ export function sendBrowserNotification(sender, msgContent) {
     console.error('[Notification] Error:', e);
   }
 }
+
 export function requestNotificationPermission() {
   if (browser && 'Notification' in window && Notification.permission === 'default') {
     Notification.requestPermission().catch(() => {});
   }
 }
+
 export function initFontPreloader() {
   if (!browser || document.getElementById('_encFontPreloader')) return;
   const el = document.createElement('div');
@@ -44,6 +48,7 @@ export function initFontPreloader() {
     '<span style="font-family:\'EncBold\',sans-serif;">.</span>';
   (document.body || document.documentElement).appendChild(el);
 }
+
 export function parseMessageContent(content) {
   if (!content) return { text: '', reply: null };
   const replyRegex = /^\s*REPLY\s+([^\s]+)\s+([^\s]+)\s+([\s\S]*?)\s+RESPONSE(?:\s+(.*))?$/;
@@ -95,16 +100,19 @@ export function parseMessageContent(content) {
   }
   return { text: content, reply: null };
 }
+
 export function getEmbeds(content) {
   const urlRegex = /(https?:\/\/[^\s]+)/g;
   return content.match(urlRegex) || [];
 }
+
 export function getMediaType(url) {
   if (/tenor\.com/i.test(url)) return 'tenor';
   if (/\.(jpg|jpeg|png|gif|webp)(\?.*)?$/i.test(url)) return 'image';
   if (/\.(mp4|webm)(\?.*)?$/i.test(url)) return 'video';
   return 'link';
 }
+
 export function formatTime(iso) {
   if (!iso) return '';
   try {
@@ -115,6 +123,7 @@ export function formatTime(iso) {
     return '';
   }
 }
+
 export function formatDay(iso) {
   if (!iso) return '';
   try {
@@ -130,6 +139,7 @@ export function formatDay(iso) {
     return '';
   }
 }
+
 export function groupMessages(messages) {
   if (!messages.length) return [];
   const grouped = [];

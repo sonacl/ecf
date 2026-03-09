@@ -5,7 +5,7 @@
   import ProfileHeader from './sidebar/ProfileHeader.svelte';
   import ProfileCard from './sidebar/ProfileCard.svelte';
   import { api } from '$lib/utils/api.js';
-  import { appState, uiState } from '$lib/state.svelte.js';
+  import { appState, uiState } from '$lib/stores/index.svelte.js';
   let { target } = $props();
   let userData = $state(null);
   let stats = $state(null);

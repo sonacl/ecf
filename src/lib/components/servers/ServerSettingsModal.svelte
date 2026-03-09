@@ -4,7 +4,7 @@
     import Input from "../ui/Input.svelte";
     import Avatar from "../ui/Avatar.svelte";
     import { api } from "$lib/utils/api.js";
-    import { appState } from "$lib/state.svelte.js";
+    import { appState } from "$lib/stores/index.svelte.js";
     import { toastError, toastSuccess } from "$lib/utils/toast.svelte.js";
     let { open = false, serverId, onClose, onUpdated } = $props();
     let server = $derived(appState.servers.find((s) => s.id === serverId));

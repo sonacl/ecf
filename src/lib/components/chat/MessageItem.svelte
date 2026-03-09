@@ -8,7 +8,7 @@
     import Avatar from "../ui/Avatar.svelte";
     import Badge from "../ui/Badge.svelte";
     import Icon from "../ui/Icon.svelte";
-    import { appState, uiState } from "$lib/state.svelte.js";
+    import { appState, uiState } from "$lib/stores/index.svelte.js";
     import { api } from "$lib/utils/api.js";
     import { toastError, toastSuccess } from "$lib/utils/toast.svelte.js";
     let {

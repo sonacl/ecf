@@ -1,7 +1,7 @@
 <script>
     import Icon from "../ui/Icon.svelte";
     import ChannelItem from "./ChannelItem.svelte";
-    import { appState } from "$lib/state.svelte.js";
+    import { appState } from "$lib/stores/index.svelte.js";
     let { onCreateChannel, onCreateGroup, onServerSettings } = $props();
     const activeServer = $derived(
         appState.servers.find((s) => s.id === appState.activeServerId),

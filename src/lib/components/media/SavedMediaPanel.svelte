@@ -3,7 +3,7 @@
     import Icon from "../ui/Icon.svelte";
     import Button from "../ui/Button.svelte";
     import { api } from "$lib/utils/api.js";
-    import { appState } from "$lib/state.svelte.js";
+    import { appState } from "$lib/stores/index.svelte.js";
     import { toastError } from "$lib/utils/toast.svelte.js";
     let loading = $state(true);
     async function loadMedia() {

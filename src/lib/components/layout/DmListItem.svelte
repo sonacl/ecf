@@ -1,6 +1,6 @@
 <script>
     import Avatar from "../ui/Avatar.svelte";
-    import { appState } from "$lib/state.svelte.js";
+    import { appState } from "$lib/stores/index.svelte.js";
     let { friend, onSelect } = $props();
     const profile = $derived(appState.profileCache[friend]);
     const isOnline = $derived(appState.onlineUsers.has(friend));

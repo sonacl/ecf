@@ -4,7 +4,7 @@
     import Button from "../ui/Button.svelte";
     import Input from "../ui/Input.svelte";
     import Icon from "../ui/Icon.svelte";
-    import { appState } from "$lib/state.svelte.js";
+    import { appState } from "$lib/stores/index.svelte.js";
     import { api } from "$lib/utils/api.js";
     import { toastError, toastSuccess } from "$lib/utils/toast.svelte.js";
     let displayName = $state(appState.user?.display_name || "");

@@ -3,7 +3,7 @@
     import Icon from "../../ui/Icon.svelte";
     import Avatar from "../../ui/Avatar.svelte";
     import { api } from "$lib/utils/api.js";
-    import { uiState } from "$lib/state.svelte.js";
+    import { uiState } from "$lib/stores/index.svelte.js";
     let { groupId } = $props();
     let members = $state([]);
     let loading = $state(true);

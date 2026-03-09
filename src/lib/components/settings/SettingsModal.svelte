@@ -4,7 +4,7 @@
     import Icon from "../ui/Icon.svelte";
     import ProfileSettingsTab from "./ProfileSettingsTab.svelte";
     import PasswordSettingsTab from "./PasswordSettingsTab.svelte";
-    import { appState } from "$lib/state.svelte.js";
+    import { appState } from "$lib/stores/index.svelte.js";
     import { api } from "$lib/utils/api.js";
     let { open = false, onClose } = $props();
     let activeTab = $state("profile");

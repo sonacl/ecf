@@ -5,7 +5,7 @@
     import Input from "../ui/Input.svelte";
     import Modal from "../ui/Modal.svelte";
     import { api } from "$lib/utils/api.js";
-    import { appState } from "$lib/state.svelte.js";
+    import { appState } from "$lib/stores/index.svelte.js";
     let { open = false, onClose, onCreated, preselectedUser = null } = $props();
     let groupName = $state("");
     let selectedFriends = $state(new Set());

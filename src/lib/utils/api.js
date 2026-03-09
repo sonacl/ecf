@@ -1,5 +1,5 @@
 import { browser } from '$app/environment';
-import { appState } from '$lib/state.svelte.js';
+import { appState } from '$lib/stores/index.svelte.js';
 import { API_BASE_URL } from '$lib/config.js';
 const BASE_URL = API_BASE_URL;
 function handleLogout() {

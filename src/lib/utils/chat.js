@@ -2,7 +2,7 @@ import { tick } from 'svelte';
 import { browser } from '$app/environment';
 import { api } from '$lib/utils/api.js';
 import { wsConnect } from '$lib/utils/ws.js';
-import { appState, uiState } from '$lib/state.svelte.js';
+import { appState, uiState } from '$lib/stores/index.svelte.js';
 import { updateTabTitle, requestNotificationPermission, initFontPreloader } from '$lib/utils/ui.js';
 export async function loadInitialData() {
   uiState.initialLoading = true;

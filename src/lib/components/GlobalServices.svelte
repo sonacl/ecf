@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { browser } from "$app/environment";
-    import { appState } from "$lib/state.svelte.js";
+    import { appState } from "$lib/stores/index.svelte.js";
     let orbAudio;
     let levelupAudio;
     let mentionAudio;

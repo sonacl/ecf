@@ -1,6 +1,6 @@
 <script>
     import Icon from "../ui/Icon.svelte";
-    import { appState } from "$lib/state.svelte.js";
+    import { appState } from "$lib/stores/index.svelte.js";
     let { channel } = $props();
     const isActive = $derived(appState.currentChat === `channel:${channel.id}`);
 </script>

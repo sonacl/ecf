@@ -1,7 +1,7 @@
 <script>
     import Avatar from "../ui/Avatar.svelte";
     import Icon from "../ui/Icon.svelte";
-    import { appState, uiState } from "$lib/state.svelte.js";
+    import { appState, uiState } from "$lib/stores/index.svelte.js";
     let { onSettings } = $props();
 </script>
 

@@ -2,7 +2,7 @@
     import { browser } from "$app/environment";
     import { goto } from "$app/navigation";
     import { onMount } from "svelte";
-    import { appState, uiState } from "$lib/state.svelte.js";
+    import { appState, uiState } from "$lib/stores/index.svelte.js";
     import { api } from "$lib/utils/api.js";
     import { loadInitialData } from "$lib/utils/chat.js";
     import GlobalServices from "$lib/components/GlobalServices.svelte";

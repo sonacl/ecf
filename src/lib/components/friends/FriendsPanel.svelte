@@ -2,7 +2,7 @@
   import Icon from '../ui/Icon.svelte';
   import Button from '../ui/Button.svelte';
   import FriendListItem from './FriendListItem.svelte';
-  import { appState, uiState } from '$lib/state.svelte.js';
+  import { appState, uiState } from '$lib/stores/index.svelte.js';
   import { api } from '$lib/utils/api.js';
   import { refreshFriendData, openDm } from '$lib/utils/chat.js';
   import { toastError, toastSuccess } from '$lib/utils/toast.svelte.js';

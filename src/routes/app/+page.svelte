@@ -7,7 +7,7 @@
     import MessageComposer from "$lib/components/chat/MessageComposer.svelte";
     import EmptyState from "$lib/components/ui/EmptyState.svelte";
     import { api } from "$lib/utils/api.js";
-    import { appState, uiState } from "$lib/state.svelte.js";
+    import { appState, uiState } from "$lib/stores/index.svelte.js";
     import {
         loadInitialData,
         fetchMessages,

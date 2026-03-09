@@ -4,7 +4,7 @@
     import Badge from "../ui/Badge.svelte";
     import Button from "../ui/Button.svelte";
     import { api } from "$lib/utils/api.js";
-    import { appState, uiState } from "$lib/state.svelte.js";
+    import { appState, uiState } from "$lib/stores/index.svelte.js";
     let { username, onClose } = $props();
     let userData = $state(null);
     let stats = $state(null);

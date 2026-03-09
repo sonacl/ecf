@@ -11,7 +11,7 @@
     import CreateServerGroupModal from "../servers/CreateServerGroupModal.svelte";
     import CreateGroupModal from "../chat/CreateGroupModal.svelte";
     import ServerSettingsModal from "../servers/ServerSettingsModal.svelte";
-    import { appState, uiState } from "$lib/state.svelte.js";
+    import { appState, uiState } from "$lib/stores/index.svelte.js";
     import { api } from "$lib/utils/api.js";
     import { onMount } from "svelte";
     import { loadServerData } from "$lib/utils/chat.js";

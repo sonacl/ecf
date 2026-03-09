@@ -1,7 +1,7 @@
 <script>
     import Avatar from "../ui/Avatar.svelte";
     import Icon from "../ui/Icon.svelte";
-    import { appState } from "$lib/state.svelte.js";
+    import { appState } from "$lib/stores/index.svelte.js";
     let { username, actions = [], statusOverride = null } = $props();
     const profile = $derived(appState.profileCache[username]);
     const isOnline = $derived(appState.onlineUsers.has(username));

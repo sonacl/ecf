@@ -1,7 +1,7 @@
 <script>
     import { browser } from "$app/environment";
     import { goto } from "$app/navigation";
-    import { appState } from "$lib/state.svelte.js";
+    import { appState } from "$lib/stores/index.svelte.js";
     import { api } from "$lib/utils/api.js";
     import AuthForm from "$lib/components/auth/AuthForm.svelte";
     import Icon from "$lib/components/ui/Icon.svelte";

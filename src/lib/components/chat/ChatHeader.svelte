@@ -1,6 +1,6 @@
 <script>
     import Icon from "../ui/Icon.svelte";
-    import { uiState } from "$lib/state.svelte.js";
+    import { uiState } from "$lib/stores/index.svelte.js";
     let { channelName = "general", isDM = false, subtitle = "", official = false } = $props();
 </script>
 <header class="chat-header flex items-center justify-between px-4">
